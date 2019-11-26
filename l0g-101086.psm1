@@ -1604,9 +1604,6 @@ Function Load-From-EVTC {
         $boss["end_time"] = $boss["end_time"]
     }
 
-    # Get an abbreviated name, if there is one
-    $boss["shortname"] = Get-Abbreviated-Name $boss["name"]
-
     # Get the wing for this encounter
     $boss["wing"] = Convert-Boss-To-Wing $boss["name"]
 
@@ -1624,6 +1621,195 @@ Function Load-From-EVTC {
     if (X-Test-Path $evtc_json) {
         $boss["evtc"] = (Get-Content -Raw -Path $evtc_json | ConvertFrom-Json)
     }
+
+    if (X-Test-Path $dpsreport_json) {
+        $dpsrep = (Get-Content -Raw -Path $dpsreport_json | ConvertFrom-Json)
+        $boss["success"] = $dpsrep.encounter.success
+        #$boss["name"] = $dpsrep.encounter.boss
+    }
+    if ($boss["id"] -eq 11333) {
+            $boss["name"] = "Son of Svanir Shaman"
+            $boss["wing"] = "Snowblind"
+            $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11408) {
+        #$boss["name"] = "Captain Ashym"
+        #$boss["wing"] = "Urban Battleground"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 12904) {
+        $boss["name"] = "Subject 6"
+        $boss["wing"] = "Thaumanova Reactor"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 19446) {
+        $boss["name"] = "Inquest Technician"
+        $boss["wing"] = "Not Sure Which Fractal"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11402) {
+        $boss["name"] = "Jellyfish Beast"
+        $boss["wing"] = "Aquatic Ruins"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 16995) {
+        $boss["name"] = "Champion Inquest Technician"
+        $boss["wing"] = "Mai Trin Fractal"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 12266) {
+        $boss["name"] = "Captain Mai Trin"
+        $boss["wing"] = "Mai Trin Fractal"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 16617) {
+        $boss["name"] = "Legendary Brazen Gladiator"
+        $boss["wing"] = "Chaos Isles"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11296) {
+        $boss["name"] = "Archdiviner"
+        $boss["wing"] = "Cliffside"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 12894) {
+        $boss["name"] = "Champion Molten Effigy"
+        $boss["wing"] = "Molten Boss"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 17000) {
+        $boss["name"] = "Multiform Ambulator Mobile Artillery"
+        $boss["wing"] = "Nightmare"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 16917) {
+        $boss["name"] = "Siax the Unclean"
+        $boss["wing"] = "Nightmare"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 17051) {
+        $boss["name"] = "Ensolyss"
+        $boss["wing"] = "Nightmare"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 17632) {
+        $boss["name"] = "Skorvald the Shattered"
+        $boss["wing"] = "Shattered Observatory"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11254) {
+        $boss["name"] = "Jade Maw"
+        $boss["wing"] = "Solid Ocean"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11264) {
+        $boss["name"] = "Mossman"
+        $boss["wing"] = "Swampland"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11265) {
+        $boss["name"] = "Bloomhunger"
+        $boss["wing"] = "Swampland"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 12906) {
+        $boss["name"] = "Thaumanova Anomaly"
+        $boss["wing"] = "Thaumanova Reactor"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11322) {
+        $boss["name"] = "Old Tom"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11329) {
+        $boss["name"] = "Rabbit/Bandit/Shaman/Ettin"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11332) {
+        $boss["name"] = "Rabbit/Bandit/Shaman/Ettin"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11331) {
+        $boss["name"] = "Rabbit/Bandit/Shaman/Ettin"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11325) {
+        $boss["name"] = "Cat Robots"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11324) {
+        $boss["name"] = "Cat Robots"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11326) {
+        $boss["name"] = "Cat Robots"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11327) {
+        $boss["name"] = "Cat Robots"
+        $boss["wing"] = "Uncategorized"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11241) {
+        $boss["name"] = "Rabsovich"
+        $boss["wing"] = "Underground Facility"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11240) {
+        $boss["name"] = "Rampaging Ice Elemental"
+        $boss["wing"] = "Underground Facility"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11239) {
+        $boss["name"] = "Dredge Powersuit"
+        $boss["wing"] = "Underground Facility"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11421) {
+        $boss["name"] = "Siegemaster Dulfy"
+        $boss["wing"] = "Urban Battleground"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11484) {
+        $boss["name"] = "Champion Grawl Shaman"
+        $boss["wing"] = "Volcanic"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 11485) {
+        $boss["name"] = "Legendary Imbued Shaman"
+        $boss["wing"] = "Volcanic"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 21592) {
+        $boss["name"] = "Mad Jack"
+        $boss["wing"] = "Siren's Reef"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 21421) {
+        $boss["name"] = "Captain Crowe"
+        $boss["wing"] = "Siren's Reef"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 12897) {
+        $boss["name"] = "Dredge Firestorm"
+        $boss["wing"] = "Molten Boss"
+        $boss["encounter_type"] = "fractal"
+    }
+    elseif ($boss["id"] -eq 12898) {
+        $boss["name"] = "Sonic Brawler"
+        $boss["wing"] = "Molten Boss"
+        $boss["encounter_type"] = "fractal"
+    }
+
+    # Get an abbreviated name, if there is one
+    $boss["shortname"] = Get-Abbreviated-Name $boss["name"]
 
     return $boss
 }
@@ -1648,7 +1834,7 @@ Function Publish-Discord-Embed {
           [Parameter(Mandatory)][string]$embed_string)
 
     # Send this request to the discord webhook
-    Invoke-RestMethod -Uri $guild.webhook_url -Method Post -Body $embed_string
+    Invoke-RestMethod -Uri $guild.webhook_url -Method Post -Body $embed_string -ContentType 'application/json'
 }
 
 <#
@@ -1722,6 +1908,7 @@ Function Format-And-Publish-Some {
 
     # If we have no encounters, just exit
     if ($some_bosses.Count -eq 0) {
+        Log-And-Write-Output "But there are no bosses for this guild"
         return
     }
 
@@ -1759,7 +1946,7 @@ Function Format-And-Publish-Some {
         # See Convert-Payload for more details
         $boss_field = [PSCustomObject]@{
                 # Each boss is just an emoji followed by the full name
-                name = "${emoji} **${name}**"
+                name = "${emoji}**${name}**"
                 inline = $true
         }
 
@@ -1782,7 +1969,7 @@ Function Format-And-Publish-Some {
         }
 
         # Add a new line and a zero-width space, to trick discord into adding extra padding
-        $link_string += "`r`n@UNICODE-ZWS@"
+        #$link_string += "`r`n@UNICODE-ZWS@"
 
         $boss_field | Add-Member @{value=$link_string}
 
@@ -1791,12 +1978,12 @@ Function Format-And-Publish-Some {
     }
 
     # Create a participants list separated by MIDDLE DOT unicode characters
-    $participants = (Get-Discord-Players $guild $players | Sort | Select-Object -Unique) -join " @MIDDLEDOT@ "
+    $participants = (Get-Discord-Players $guild $players | Sort | Select-Object -Unique) -join ", "
 
     # Add a final field as the set of players.
     if ($participants) {
         $fields += [PSCustomObject]@{
-            name = "@EMDASH@ Raiders @EMDASH@"
+            name = "People"
             value = "${participants}"
         }
     }
@@ -1827,7 +2014,8 @@ Function Format-And-Publish-Some {
     # Create the data object
     $data_object = [PSCustomObject]@{
         title = "$($running_guild.name) ${prefix} | ${date} ($timespan_string)"
-        color = 0xf9a825
+        #color = 0xf9a825
+        color  = "16361509"
         fields = $fields
         footer = [PSCustomObject]@{ text = "Created by /u/platinummyr" }
     }
@@ -1905,9 +2093,10 @@ Function Split-Bosses {
     $hash = @{}
 
     foreach ($b in $bosses) {
+
         # Hash key to use
         $value = $b[$key]
-
+        
         if (-not $hash.ContainsKey($value)) {
             $hash[$value] = @()
         }
@@ -2004,6 +2193,10 @@ Function Format-And-Publish-All {
 
 
     $per_guild = Split-Bosses $bosses "guild"
+
+    if ($per_guild.Count -eq 1) {
+        Log-And-Write-Output "And there is one guild in the encounters"
+    }
 
     # For each guild in the array of bosses
     $per_guild.GetEnumerator() | Sort-Object -Property {$_.Key}, key | ForEach-Object {
@@ -2126,7 +2319,7 @@ Function UploadTo-DpsReport {
         throw "Unknown dps.report generator $dps_report_generator"
     }
 
-    $client = New-Object RestSharp.RestClient("https://dps.report")
+    $client = New-Object RestSharp.RestClient("http://a.dps.report")
     $req = New-Object RestSharp.RestRequest("/uploadContent")
     $req.Method = [RestSharp.Method]::POST
 
@@ -2139,7 +2332,8 @@ Function UploadTo-DpsReport {
     }
 
     # Include the dps.report user token
-    $req.AddParameter("userToken", $config.dpsreport_token)
+    Write-Output "Setting report token: $($config.dps_report_token)"
+    $req.AddParameter("userToken", $config.dps_report_token)
 
     # Set the generator if it was configured
     if ($dps_report_generator) {
@@ -2258,8 +2452,8 @@ Function Complete-UploadTo-DpsReport {
 # SIG # Begin signature block
 # MIIFhQYJKoZIhvcNAQcCoIIFdjCCBXICAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUgiaOpmIqgovcC/z0WFkvD+oZ
-# sO6gggMYMIIDFDCCAfygAwIBAgIQLNFTiNzlwrtPtvlsLl9i3DANBgkqhkiG9w0B
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUwoedKGXrVA+7I3B2DYfDmhIr
+# F7egggMYMIIDFDCCAfygAwIBAgIQLNFTiNzlwrtPtvlsLl9i3DANBgkqhkiG9w0B
 # AQsFADAiMSAwHgYDVQQDDBdMMEctMTAxMDg2IENvZGUgU2lnbmluZzAeFw0xOTA1
 # MTEwNjIxMjNaFw0yMDA1MTEwNjQxMjNaMCIxIDAeBgNVBAMMF0wwRy0xMDEwODYg
 # Q29kZSBTaWduaW5nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAz8yX
@@ -2279,11 +2473,11 @@ Function Complete-UploadTo-DpsReport {
 # HgYDVQQDDBdMMEctMTAxMDg2IENvZGUgU2lnbmluZwIQLNFTiNzlwrtPtvlsLl9i
 # 3DAJBgUrDgMCGgUAoHgwGAYKKwYBBAGCNwIBDDEKMAigAoAAoQKAADAZBgkqhkiG
 # 9w0BCQMxDAYKKwYBBAGCNwIBBDAcBgorBgEEAYI3AgELMQ4wDAYKKwYBBAGCNwIB
-# FTAjBgkqhkiG9w0BCQQxFgQULDIODyydVIB8BM3s0EsYQzI2FWAwDQYJKoZIhvcN
-# AQEBBQAEggEAfmjYT7AjAM1mIQ4/ZXCHr3Z5ohm+PEhKm9WT4xyRc91Oj46RJMuf
-# V6Ll8Mqf80n9cecJrCqiEdUPIE29Y4Q0C6Mcl4fkj8hnDs0VAQDSrhzq18qkGKus
-# bW+5Q2bSfMQNFVTWMqYS6jeH9JVNAuacdg/RzUKUXuNNvCEssrJh39dZSmZ77tiX
-# cd+oxyhnMFNipaeseehhbKvEpASR24FyfQG6MjLv7NiGd8PQg+I1yMiAPwWZYcqk
-# sPokrajktAExApzJvL7wFwnfRiCAjrtwC+s29wSiLIdBKSu8zjjxoOpHpAZtL7V1
-# 7T6GvqfEO13S2zDUEsV9x0CYZgdTW0cdXg==
+# FTAjBgkqhkiG9w0BCQQxFgQUUik3+BYqKkaEIJ9vtQG6kodp/kgwDQYJKoZIhvcN
+# AQEBBQAEggEAc1cqTMq2lijZQVu5ZGtGBsIe3aoajGHu5zStL+j11kY6ojXY1zSg
+# qcjDcdqv6hjItKfdwDkGjECPjTg95SXiqYY1CXWMa3gZ2xHQm7nEWNtUJuwINe65
+# DKbZlP74jodzaYLqQUNQvFIPhcFwuqxsa7Jp8TfuedmBf3ARNTpsZV0XE17Kwn8K
+# pjhGMNyj3l939RUzq8fumoBSygccuJ+QHLGMQFo9vpPSLNAY7q0iMIUzMFMWhv7h
+# BjvXRy6X/z2pcs2uuo4U3FS250JlBR5x9ELq5qxs4nXEQGvBS9+q5F4gDu5Ckehe
+# atXeHbE3NLoyC6Bw67e0VjoNALvCnWctHg==
 # SIG # End signature block
