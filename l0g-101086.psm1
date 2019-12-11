@@ -1657,7 +1657,7 @@ Function Load-From-EVTC {
         $boss["wing"] = "Mai Trin Fractal"
         $boss["encounter_type"] = "fractal"
     }
-    elseif ($boss["id"] -eq 12266) {
+    elseif ($boss["id"] -eq 19697) {
         $boss["name"] = "Captain Mai Trin"
         $boss["wing"] = "Mai Trin Fractal"
         $boss["encounter_type"] = "fractal"
